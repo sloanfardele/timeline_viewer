@@ -3,12 +3,6 @@
  */
 
 
-function submit(){
-    var date = document.getElementById("date");
-    var event = document.getElementById("event");
-
-    var test = document.getElementById("test");
-
-
-    test.innerHTML = "Date = "+date+" Event = "+event;
+function submit() {
+    console.log('work');
 }

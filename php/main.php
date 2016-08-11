@@ -6,6 +6,7 @@
  * Time: 15:12
  */
 
+include 'connect.php';
 ?>
 <html>
 <head>
@@ -14,24 +15,17 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<div id="title">
-    <h1>
-Frise Chronologique
-</h1>
-</div>
-<div id="fields">
-    Date :
-        <input type="text" name="date" required>
-        <br>
-Evènement :
-        <input type="text" name="event" required>
-        <br>
-        <input type="submit" value="Ajouter" onclick="submit()">
-</div>
-<div id="test">
+<h1>Please select a timeline</h1>
+    <?php
+    $link = connect();
+    $query = "SELECT title FROM timelines";
+    $result = mysqli_query($link,$query);
+    while ($row = $result->fetch_assoc()) {
+        echo " id = " . $row['id'] . "\n";
+        echo " title = " . $row['title'] . "\n";
 
-</div>
-
-<script type="text/javascript" src="../js/functions.js"></script>
+    }
+    ?>
 </body>
 </html>
+
