@@ -7,6 +7,7 @@
  */
 
 include 'connect.php';
+include 'C:/Users/link0/Desktop/dBug/dBug.php';
 ?>
 <html>
 <head>
@@ -18,11 +19,11 @@ include 'connect.php';
 <h1>Please select a timeline</h1>
     <?php
     $link = connect();
-    $query = "SELECT title FROM timelines";
+    $query = "SELECT * FROM tv_events";
     $result = mysqli_query($link,$query);
     while ($row = $result->fetch_assoc()) {
-        echo " id = " . $row['id'] . "\n";
-        echo " title = " . $row['title'] . "\n";
+        echo " id = " . $row['id_event'] . "\n";
+        echo " name = " . $row['name_event'] . "\n";
 
     }
     ?>

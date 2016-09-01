@@ -9,7 +9,7 @@
 
 	function connect()
     {
-        $link = mysqli_connect("localhost","","","timeline_viewer");
+        $link = mysqli_connect("localhost","root","","timeline_viewer");
         if (!$link)
         {
             die('erreur de connexion a la base de données(' .mysqli_connect_errno() . ') ' . mysqli_connect_error());

@@ -1,9 +1,21 @@
-#title{
+.title {
     text-align: center;
     font-family: 'Segoe UI Light';
 }
 
-#fields{
+.fields {
     text-align: center;
     font-family: 'Segoe UI Light';
 }
+
+#home_icon {
+    position: fixed;
+    top: 1%;
+    right: 0;
+}
+
+#home_icon img{
+    width: 50%;
+    height: auto;
+}
+

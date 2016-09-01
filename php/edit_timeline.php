@@ -15,21 +15,20 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<div id="title">
-    <h1>
-        Frise Chronologique
-    </h1>
-    <div id="fields">
-        <form method="post" action="actionform.php">
-            Date :
-            <input type="text" name="date" required>
-            <br>
-            Evènement :
-            <input type="text" name="event" required>
-            <br>
-            <input type="submit" value="Ajouter" onclick="submit()">
-        </form>
-    </div>
-    <script type="text/javascript" src="../js/functions.js"></script>
+<h1 class="title">
+    Frise Chronologique
+</h1>
+<div id="fields">
+    <form method="post" action="actionform.php">
+        Date :
+        <input type="text" name="date" required>
+        <br>
+        Evènement :
+        <input type="text" name="event" required>
+        <br>
+        <input type="submit" value="Ajouter" onclick="submit()">
+    </form>
+</div>
+<script type="text/javascript" src="../js/functions.js"></script>
 </body>
 </html>
