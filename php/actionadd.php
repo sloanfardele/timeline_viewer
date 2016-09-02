@@ -6,6 +6,11 @@
  * Time: 15:39
  */
 
+session_start();
+?>
+
+<?php
+
 include "connect.php";
 include 'C:/Users/link0/Desktop/dBug/dBug.php';
 
@@ -24,5 +29,6 @@ if(!$result){
     exit;
 }
 
+$_SESSION['name_timeline'] = $name_timeline;
 
 header('Location: edit_timeline.php');

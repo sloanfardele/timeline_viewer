@@ -6,6 +6,8 @@
  * Time: 18:43
  */
 
+session_start();
+
 include "connect.php";
 include 'C:/Users/link0/Desktop/dBug/dBug.php';
 ?>
@@ -13,12 +15,12 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Edit a timeline</title>
+    <title>Add an event</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <h1 class="title">
-    Edit a timeline
+    Add an event
 </h1>
 <div id="home_icon">
     <a href="main.php">
@@ -34,12 +36,16 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
             $link = connect();
             $query = 'SELECT * FROM tv_timelines';
             $result = mysqli_query($link, $query);
-            if(!$result){
+            if (!$result) {
                 echo 'Error, can\'t acces the database';
                 exit;
             }
             while ($row = $result->fetch_assoc()) {
-                echo '<option value="'.$row['id'].'">'.$row['nom'].'</option>';
+                if($_SESSION['name_timeline'] == $row['nom'] || $_SESSION['id_timeline'] == $row['id']) {
+                    echo '<option value="' . $row['id'] . '" selected>' . $row['nom'] . '</option>';
+                }else{
+                    echo '<option value="' . $row['id'] . '">' . $row['nom'] . '</option>';
+                }
             }
             ?>
         </select>
@@ -59,6 +65,13 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
         <br>
         <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
     </form>
+</div>
+<div id="confirmation_adding_event">
+    <?php
+    if (isset($_SESSION['is_event_add']) && $_SESSION['is_event_add'] == 1) {
+        echo 'L\'évènement ' . $_SESSION['name_event'] . ' a bien été ajouté';
+    }
+    ?>
 </div>
 </body>
 </html>

@@ -5,13 +5,17 @@
  * Date: 11/08/2016
  * Time: 18:42
  */
+
+session_start();
+session_destroy();
+include 'C:/Users/link0/Desktop/dBug/dBug.php';
 ?>
 
 
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Add a new timeline</title>
+    <title>Create a new timeline</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>

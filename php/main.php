@@ -6,6 +6,10 @@
  * Time: 15:12
  */
 
+session_start();
+$_SESSION['is_event_add'] = null;
+$_SESSION['name_event'] = null;
+
 include 'connect.php';
 include 'C:/Users/link0/Desktop/dBug/dBug.php';
 ?>
