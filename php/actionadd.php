@@ -7,7 +7,6 @@
  */
 
 include "connect.php";
-
 include 'C:/Users/link0/Desktop/dBug/dBug.php';
 
 $name_timeline = $_GET['name_timeline'];

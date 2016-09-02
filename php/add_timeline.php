@@ -23,11 +23,11 @@
 </div>
 <div class="fields">
 <form action="actionadd.php" method="get">
-    <label>Name : </label>
-    <input type="text" name="name_timeline" required>
+    Name
     <br>
+    <input type="text" name="name_timeline" required style="width: 300px;">
     <br>
-    <input type="image" src="../media/ok.png" alt="submit">
+    <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
 </form>
 </div>
 </body>
