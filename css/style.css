@@ -10,6 +10,12 @@
     font-size: 20pt;
 }
 
+.timeline_name {
+    text-align: center;
+    font-family: 'Segoe UI Light';
+    font-size: 30pt;
+}
+
 #home_icon {
     position: fixed;
     top: 5%;
@@ -28,7 +34,7 @@
     text-align: center;
 }
 
-#confirmation_adding_event{
+#confirmation_adding_event {
     font-family: "Segoe UI Light";
     color: forestgreen;
     text-align: center;

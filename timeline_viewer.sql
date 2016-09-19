@@ -35,14 +35,6 @@ CREATE TABLE IF NOT EXISTS `tv_events` (
   PRIMARY KEY (`id_event`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
---
--- Contenu de la table `tv_events`
---
-
-INSERT INTO `tv_events` (`id_event`, `id_timeline`, `date_event`, `name_event`, `desc_event`) VALUES
-(1, 1, '2016-06-14', 'Un truc de ouf', 'Il s''est passé un truc de malade wllh'),
-(2, 1, '2016-08-10', '4 ans', '4 ans avec la plus belle ');
-
 -- --------------------------------------------------------
 
 --
@@ -56,13 +48,6 @@ CREATE TABLE IF NOT EXISTS `tv_timelines` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
---
--- Contenu de la table `tv_timelines`
---
-
-INSERT INTO `tv_timelines` (`id`, `nom`, `date_de_creation`) VALUES
-(1, 'test', '2016-09-01'),
-(8, 'Anne', '2016-09-01');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

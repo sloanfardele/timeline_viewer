@@ -18,15 +18,15 @@ $link = connect();
 $timeline = $_GET['timeline'];
 $date = $_GET['date'];
 $event = addslashes($_GET['event']);
-$desc_event =addslashes($_GET['desc']);
+$desc_event = addslashes($_GET['desc']);
 
 
-$query = "INSERT INTO tv_events (id_timeline, date_event, name_event, desc_event) VALUES ('".$timeline."', '".$date."', '".$event."', '".$desc_event."')";
+$query = "INSERT INTO tv_events (id_timeline, date_event, name_event, desc_event) VALUES ('" . $timeline . "', '" . $date . "', '" . $event . "', '" . $desc_event . "')";
 
 
-$result = mysqli_query($link,$query);
+$result = mysqli_query($link, $query);
 
-if(!$result){
+if (!$result) {
     echo 'Error, can\'t add this new event';
     exit;
 }

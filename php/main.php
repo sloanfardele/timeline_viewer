@@ -10,6 +10,8 @@ session_start();
 $_SESSION['is_event_add'] = null;
 $_SESSION['name_event'] = null;
 
+$_SESSION['id_timeline'] = 1;
+
 include 'connect.php';
 include 'C:/Users/link0/Desktop/dBug/dBug.php';
 ?>
@@ -20,17 +22,79 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<h1>Please select a timeline</h1>
+<h1 class=title>Please select a timeline</h1>
+<div class="fields">
+    <form method="get" action="actionmain.php">
+        <select name="timeline" required style="font-family: inherit; font-size: 20pt;">
+            <?php
+            $link = connect();
+            $query = 'SELECT * FROM tv_timelines';
+            $result = mysqli_query($link, $query);
+            if (!$result) {
+                echo 'Error, can\'t acces the database';
+                exit;
+            }
+            while ($row = $result->fetch_assoc()) {
+                if ($_SESSION['name_timeline'] == $row['nom'] || $_SESSION['id_timeline'] == $row['id']) {
+                    echo '<option value="' . $row['id'] . '" selected>' . $row['nom'] . '</option>';
+                } else {
+                    echo '<option value="' . $row['id'] . '">' . $row['nom'] . '</option>';
+                }
+            }
+            ?>
+        </select>
+        <br>
+        <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
+    </form>
+</div>
+<div id="timeline_display">
     <?php
-    $link = connect();
-    $query = "SELECT * FROM tv_events";
-    $result = mysqli_query($link,$query);
-    while ($row = $result->fetch_assoc()) {
-        echo " id = " . $row['id_event'] . "\n";
-        echo " name = " . $row['name_event'] . "\n";
+    if (isset($_SESSION['id_timeline'])) {
+        $link = connect();
+        $query_events = 'SELECT date_event, name_event, desc_event FROM tv_events WHERE id_timeline = ' . $_SESSION['id_timeline'];
+        $query_timeline_name = 'SELECT DISTINCT nom FROM tv_timelines WHERE id = ' . $_SESSION['id_timeline'];
 
-    }
-    ?>
+        $result = mysqli_query($link, $query_timeline_name);
+
+        $timeline_name_array = $result->fetch_assoc();
+        $timeline_name = $timeline_name_array['nom'];
+
+        $result = mysqli_query($link, $query_events);
+
+
+
+        echo '<table>';
+
+        echo '<caption>'.$timeline_name.'</caption>';
+        ?>
+            
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            while ($row = $result->fetch_assoc()) {
+                echo '<tr>';
+                echo '<th>';
+                echo $row['date_event'];
+                echo '</th>';
+                echo '<th>';
+                echo $row['name_event'];
+                echo '</th>';
+                echo '<th>';
+                echo $row['desc_event'];
+                echo '</th>';
+                echo '</tr>';
+            }
+            ?>
+            </tbody>
+        </table>
+    <?php } ?>
+</div>
 </body>
 </html>
 
