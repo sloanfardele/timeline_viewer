@@ -19,20 +19,22 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<h1 class="title">New Timeline</h1>
-<div id="home_icon">
-<a href="main.php">
-    <img src="../media/home.png">
-</a>
-</div>
+<header>
+    <h1 class="title">New Timeline</h1>
+    <div class="icon">
+        <a href="index.php">
+            <img src="../media/home.png">
+        </a>
+    </div>
+</header>
 <div class="fields">
-<form action="actionadd.php" method="get">
-    Name
-    <br>
-    <input type="text" name="name_timeline" required style="width: 300px;">
-    <br>
-    <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
-</form>
+    <form action="actionadd.php" method="get">
+        Name
+        <br>
+        <input type="text" name="name_timeline" required style="width: 300px;">
+        <br>
+        <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
+    </form>
 </div>
 </body>
 </html>

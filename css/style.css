@@ -16,17 +16,6 @@
     font-size: 30pt;
 }
 
-#home_icon {
-    position: fixed;
-    top: 5%;
-    right: 0;
-}
-
-#home_icon img {
-    width: 50%;
-    height: auto;
-}
-
 .fields form input {
     height: 50px;
     font-family: 'Segoe UI Light';
@@ -39,5 +28,28 @@
     color: forestgreen;
     text-align: center;
 }
+
+header .icon {
+    position: fixed;
+    top: 5%;
+    right: 0;
+    margin: 0;
+    padding-right: 2%;
+}
+
+header .icon img {
+    width: 3em;
+    height: auto;
+    margin-left: 2em;
+}
+
+header .icon a {
+    text-decoration: none;
+}
+
+#spinner{
+    height: 50px;
+}
+
 
 

@@ -10,8 +10,6 @@ session_start();
 $_SESSION['is_event_add'] = null;
 $_SESSION['name_event'] = null;
 
-$_SESSION['id_timeline'] = 1;
-
 include 'connect.php';
 include 'C:/Users/link0/Desktop/dBug/dBug.php';
 ?>
@@ -20,11 +18,22 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
     <meta charset="UTF-8">
     <title>Timeline maker</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/functions.js"></script>
 </head>
 <body>
-<h1 class=title>Please select a timeline</h1>
+<header>
+    <h1 class=title>Please select a timeline</h1>
+    <div class="icon">
+        <a href="add_timeline.php">
+            <img id="add" src="../media/add.png">
+        </a>
+        <a href="edit_timeline.php">
+            <img id="edit" src="../media/edit.png">
+        </a>
+    </div>
+</header>
 <div class="fields">
-    <form method="get" action="actionmain.php">
+    <form method="get" action="actionindex.php">
         <select name="timeline" required style="font-family: inherit; font-size: 20pt;">
             <?php
             $link = connect();
@@ -44,7 +53,9 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
             ?>
         </select>
         <br>
-        <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
+        <div id="validation_icon">
+            <input type="image" src="../media/ok.png" alt="submit" height="10%" width="auto">
+        </div>
     </form>
 </div>
 <div id="timeline_display">
@@ -62,36 +73,35 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
         $result = mysqli_query($link, $query_events);
 
 
-
         echo '<table>';
 
-        echo '<caption>'.$timeline_name.'</caption>';
+        echo '<caption>' . $timeline_name . '</caption>';
         ?>
-            
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Nom</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            while ($row = $result->fetch_assoc()) {
-                echo '<tr>';
-                echo '<th>';
-                echo $row['date_event'];
-                echo '</th>';
-                echo '<th>';
-                echo $row['name_event'];
-                echo '</th>';
-                echo '<th>';
-                echo $row['desc_event'];
-                echo '</th>';
-                echo '</tr>';
-            }
-            ?>
-            </tbody>
+
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Nom</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        while ($row = $result->fetch_assoc()) {
+            echo '<tr>';
+            echo '<th>';
+            echo $row['date_event'];
+            echo '</th>';
+            echo '<th>';
+            echo $row['name_event'];
+            echo '</th>';
+            echo '<th>';
+            echo $row['desc_event'];
+            echo '</th>';
+            echo '</tr>';
+        }
+        ?>
+        </tbody>
         </table>
     <?php } ?>
 </div>

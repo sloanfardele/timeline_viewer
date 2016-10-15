@@ -19,14 +19,16 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<h1 class="title">
-    Add an event
-</h1>
-<div id="home_icon">
-    <a href="main.php">
-        <img src="../media/home.png">
-    </a>
-</div>
+<header>
+    <h1 class="title">
+        Add an event
+    </h1>
+    <div class="icon">
+        <a href="index.php">
+            <img src="../media/home.png">
+        </a>
+    </div>
+</header>
 <div class="fields">
     <form method="get" action="actionedit.php">
         Frise
@@ -41,9 +43,9 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
                 exit;
             }
             while ($row = $result->fetch_assoc()) {
-                if($_SESSION['name_timeline'] == $row['nom'] || $_SESSION['id_timeline'] == $row['id']) {
+                if ($_SESSION['name_timeline'] == $row['nom'] || $_SESSION['id_timeline'] == $row['id']) {
                     echo '<option value="' . $row['id'] . '" selected>' . $row['nom'] . '</option>';
-                }else{
+                } else {
                     echo '<option value="' . $row['id'] . '">' . $row['nom'] . '</option>';
                 }
             }
