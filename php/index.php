@@ -18,6 +18,7 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
     <meta charset="UTF-8">
     <title>Timeline maker</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/timeline.css">
     <script type="text/javascript" src="../js/functions.js"></script>
 </head>
 <body>
@@ -61,49 +62,39 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
 <div id="timeline_display">
     <?php
     if (isset($_SESSION['id_timeline'])) {
-        $link = connect();
-        $query_events = 'SELECT date_event, name_event, desc_event FROM tv_events WHERE id_timeline = ' . $_SESSION['id_timeline'];
-        $query_timeline_name = 'SELECT DISTINCT nom FROM tv_timelines WHERE id = ' . $_SESSION['id_timeline'];
-
-        $result = mysqli_query($link, $query_timeline_name);
-
-        $timeline_name_array = $result->fetch_assoc();
-        $timeline_name = $timeline_name_array['nom'];
-
-        $result = mysqli_query($link, $query_events);
+    $link = connect();
+    $query_events = 'SELECT date_event, name_event, desc_event FROM tv_events WHERE id_timeline = ' . $_SESSION['id_timeline'] . ' ORDER BY date_event';
+    $query_timeline_name = 'SELECT DISTINCT nom FROM tv_timelines WHERE id = ' . $_SESSION['id_timeline'];
 
 
-        echo '<table>';
+    $result = mysqli_query($link, $query_timeline_name);
 
-        echo '<caption>' . $timeline_name . '</caption>';
-        ?>
+    $timeline_name_array = $result->fetch_assoc();
+    $timeline_name = $timeline_name_array['nom'];
 
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Nom</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
+    $result = mysqli_query($link, $query_events);
+
+
+    echo $timeline_name;
+    ?>
+    <ol>
         <?php
+
+
         while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<th>';
-            echo $row['date_event'];
-            echo '</th>';
-            echo '<th>';
-            echo $row['name_event'];
-            echo '</th>';
-            echo '<th>';
+            echo '<li>';
+            echo '<p class="diplome">';
+            echo $row['date_event'].' : '.$row['name_event'];
+            echo '</p>';
+            echo '<span class="point"></span>';
+            echo '<p class="description">';
             echo $row['desc_event'];
-            echo '</th>';
-            echo '</tr>';
+            echo '</p>';
+            echo '</li>';
+        }
         }
         ?>
-        </tbody>
-        </table>
-    <?php } ?>
+    </ol>
 </div>
 </body>
 </html>

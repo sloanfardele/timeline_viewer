@@ -54,7 +54,7 @@ include 'C:/Users/link0/Desktop/dBug/dBug.php';
         <br>
         Date
         <br>
-        <input type="number" required name="date">
+        <input type="date" required name="date">
         <br>
         Evènement
         <br>
