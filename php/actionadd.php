@@ -12,7 +12,7 @@ session_start();
 <?php
 
 include "connect.php";
-include 'C:/Users/link0/Desktop/dBug/dBug.php';
+include("../dBug.php");
 
 $name_timeline = $_GET['name_timeline'];
 

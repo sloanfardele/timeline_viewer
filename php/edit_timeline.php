@@ -9,7 +9,7 @@
 session_start();
 
 include "connect.php";
-include 'C:/Users/link0/Desktop/dBug/dBug.php';
+include("../dBug.php");
 ?>
 
 <html>

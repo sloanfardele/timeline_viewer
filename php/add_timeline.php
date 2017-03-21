@@ -8,7 +8,7 @@
 
 session_start();
 session_destroy();
-include 'C:/Users/link0/Desktop/dBug/dBug.php';
+include("../dBug.php");
 ?>
 
 
